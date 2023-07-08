@@ -35,7 +35,7 @@ app.delete("/deletetask/:taskid",(req,res)=>{
 })
 
 app.put("/update/:taskid",(req,res)=>{
-    const UPDATE_QUERY=`update tasklist set task=${req.body.task}' where taskid=${req.params.taskid};`
+    const UPDATE_QUERY=`update tasklist set task='${req.body.task}' where taskid=${req.params.taskid};`
     connection.query(UPDATE_QUERY,(err)=>{
         if(err)console.log("err", err)
         else res.send("task has been updated") 
